@@ -1,0 +1,9 @@
+﻿<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="WolverineFx" Version="3.1.0" />
+    <PackageVersion Include="WolverineFx.MemoryPack" Version="3.1.0" />
+  </ItemGroup>
+</Project>
