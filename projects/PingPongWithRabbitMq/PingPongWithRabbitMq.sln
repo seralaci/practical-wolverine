@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9A037F81-95F6-4595-9020-8394B04AC6B3}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		docker-compose.yml = docker-compose.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4BCFDF1E-C443-4260-A250-C62C0D7B0E58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pinger", "src\Pinger\Pinger.csproj", "{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ponger", "src\Ponger\Ponger.csproj", "{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A} = {4BCFDF1E-C443-4260-A250-C62C0D7B0E58}
+		{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9} = {4BCFDF1E-C443-4260-A250-C62C0D7B0E58}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CAD861-6FE2-491C-8D53-0CB0E8D5A19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E8BCF7-BD7D-49FB-AABB-CC651CF518E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

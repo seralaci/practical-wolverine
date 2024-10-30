@@ -1,0 +1,30 @@
+﻿services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+  pinger:
+    image: pinger
+    depends_on:
+      - rabbitmq
+      - ponger
+    build:
+      context: .
+      dockerfile: src/Pinger/Dockerfile
+    environment:
+      ConnectionStrings__rabbit: "host=rabbitmq;username=guest;password=guest"
+      DOTNET_ENVIRONMENT: "Production"
+  ponger:
+    image: ponger
+    depends_on:
+      - rabbitmq
+    build:
+      context: .
+      dockerfile: src/Ponger/Dockerfile
+    environment:
+      ConnectionStrings__rabbit: "host=rabbitmq;username=guest;password=guest"
+      DOTNET_ENVIRONMENT: "Production"

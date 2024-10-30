@@ -1,0 +1,9 @@
+﻿<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="WolverineFx" Version="3.1.0" />
+    <PackageVersion Include="WolverineFx.RabbitMQ" Version="3.1.0-rc-3" />
+  </ItemGroup>
+</Project>
