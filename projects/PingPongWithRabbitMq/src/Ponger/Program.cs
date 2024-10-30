@@ -7,35 +7,38 @@ namespace Ponger;
 
 public static class Program
 {
-    public static async Task<int> Main(string[] args)
-    {
-        return await Host
-            .CreateDefaultBuilder(args)
-            .UseWolverine(opts =>
+    public static async Task<int> Main(string[] args) => await CreateHostBuilder(args).RunOaktonCommands(args);
+
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureHostConfiguration(config => config.AddEnvironmentVariables())
+            .ConfigureServices((hostContext, services) =>
             {
-                // Going to listen to a queue named "pings"
-                opts.ListenToRabbitQueue("pings")
-                    .PreFetchCount(5) // Prefetch 5 messages at a time
-                    .ListenerCount(1); // Use a single listener
+                services
+                    .AddWolverine(opts =>
+                    {
+                        // Going to listen to a queue named "pings"
+                        opts.ListenToRabbitQueue("pings")
+                            .PreFetchCount(5) // Prefetch 5 messages at a time
+                            .ListenerCount(1); // Use a single listener
 
-                // Publish messages to the pings queue
-                opts.PublishMessage<Pong>()
-                    .ToRabbitQueue("pongs");
+                        // Publish messages to the pings queue
+                        opts.PublishMessage<Pong>()
+                            .ToRabbitQueue("pongs");
 
-                // Configure Rabbit MQ connection to the connection string
-                // named "rabbit" from IConfiguration. This is *a* way to use
-                // Wolverine + Rabbit MQ using Aspire
-                opts.UseRabbitMqUsingNamedConnection("rabbit")
-                    // Directs Wolverine to build any declared queues, exchanges, or
-                    // bindings with the Rabbit MQ broker as part of bootstrapping time
-                    .AutoProvision();
+                        // Configure RabbitMQ based on the connection string named "rabbit" containing the RabbitMQ URI.
+                        // This is *a* way to use Wolverine + Rabbit MQ using Aspire
+                        opts.UseRabbitMq(new Uri(hostContext.Configuration.GetConnectionString("rabbit")!))
+                            // Directs Wolverine to build any declared queues, exchanges, or
+                            // bindings with the Rabbit MQ broker as part of bootstrapping time
+                            .AutoProvision();
 
-                // Override the application assembly to help Wolverine find its handlers
-                opts.ApplicationAssembly = typeof(Program).Assembly;
+                        // Override the application assembly to help Wolverine find its handlers
+                        opts.ApplicationAssembly = typeof(Program).Assembly;
 
-                // Use "Auto" type load mode at development time, but "Static" any other time
-                opts.OptimizeArtifactWorkflow();
-            })
-            .RunOaktonCommands(args);
-    }
+                        // Use "Auto" type load mode at development time, but "Static" any other time
+                        opts.OptimizeArtifactWorkflow();
+                    })
+                    .AddServiceDefaults(hostContext.Configuration);
+            });
 }

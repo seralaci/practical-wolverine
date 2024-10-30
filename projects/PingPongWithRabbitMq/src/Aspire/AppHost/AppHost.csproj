@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>352437d7-64d5-4760-9617-df3b394fda3a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost"/>
+    <PackageReference Include="Aspire.Hosting.RabbitMQ"/>
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pinger\Pinger.csproj"/>
+    <ProjectReference Include="..\..\Ponger\Ponger.csproj"/>
+  </ItemGroup>
+
+</Project>

@@ -11,6 +11,6 @@
       NU1901-NU1904: A nuget package restored for a project has a known vulnerability.
       CA2007: Consider calling ConfigureAwait on the awaited task.
     -->
-    <NoWarn>NU1901;NU1902;NU1903;NU1904;CA2007</NoWarn>
+    <NoWarn>NU1901;NU1902;NU1903;NU1904;CA2007;</NoWarn>
   </PropertyGroup>
 </Project>

@@ -16,4 +16,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aspire\ServiceDefaults\ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageVersion Update="Serilog.AspNetCore" Version="8.0.3" />
+  </ItemGroup>
+
 </Project>

@@ -16,7 +16,7 @@
       context: .
       dockerfile: src/Pinger/Dockerfile
     environment:
-      ConnectionStrings__rabbit: "host=rabbitmq;username=guest;password=guest"
+      ConnectionStrings__rabbit: "amqp://guest:guest@rabbitmq"
       DOTNET_ENVIRONMENT: "Production"
   ponger:
     image: ponger
@@ -26,5 +26,5 @@
       context: .
       dockerfile: src/Ponger/Dockerfile
     environment:
-      ConnectionStrings__rabbit: "host=rabbitmq;username=guest;password=guest"
+      ConnectionStrings__rabbit: "amqp://guest:guest@rabbitmq"
       DOTNET_ENVIRONMENT: "Production"

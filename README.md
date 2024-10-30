@@ -10,7 +10,7 @@ A classic "ping/pong" sample of sending messages between two Wolverine processes
 #### [`PingPongWithRabbitMq`](projects/PingPongWithRabbitMq)
 
 A classic "ping/pong" sample of sending messages between two Wolverine processes using Rabbit MQ.
-It also includes an example of code generation during Docker image creation.
+It also includes an example of code generation during Docker image creation and integration with `Aspire`.
 
 ## Useful Links
  - [Wolverine GitHub](https://github.com/JasperFx/wolverine)

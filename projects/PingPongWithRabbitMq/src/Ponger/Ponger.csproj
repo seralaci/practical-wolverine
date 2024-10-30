@@ -16,4 +16,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aspire\ServiceDefaults\ServiceDefaults.csproj" />
+  </ItemGroup>
+
 </Project>
